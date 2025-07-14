@@ -1,0 +1,16 @@
+from flask import Flask, request, jsonify
+from pythainlp.transliterate import romanize
+
+app = Flask(__name__)
+
+@app.route('/romanize', methods=['POST'])
+def transliterate():
+    data = request.get_json()
+    text = data.get("text", "")
+    if not text:
+        return jsonify({"error": "Missing 'text'"}), 400
+    result = romanize(text, engine="thai2rom")
+    return jsonify({"romanized": result})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
