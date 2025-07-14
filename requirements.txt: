@@ -1,2 +1,2 @@
 flask
-pythainlp
+pythainlp==4.0.2
