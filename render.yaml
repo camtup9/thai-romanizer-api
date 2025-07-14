@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: thai-romanizer
+    env: python
+    buildCommand: ""
+    startCommand: "python main.py"
+    plan: free
+    region: singapore
