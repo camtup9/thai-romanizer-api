@@ -14,7 +14,7 @@ def romanizer():
         if not data or "text" not in data:
             return jsonify({"error": "Thiếu dữ liệu văn bản"}), 400
         thai_text = data["text"].strip()
-        result = romanize(thai_text, engine="thai2rom")
+        result = romanize(thai_text, engine="royin")
         return jsonify({"romanized": result})
     except Exception as e:
         return jsonify({"error": f"Lỗi xử lý: {str(e)}"}), 500
