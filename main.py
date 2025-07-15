@@ -17,4 +17,7 @@ def romanizer():
         result = romanize(thai_text, engine="thai2rom")
         return jsonify({"romanized": result})
     except Exception as e:
-        return jsonify({"error": "Lỗi xử lý: " + str(e)}), 500
+        return jsonify({"error": f"Lỗi xử lý: {str(e)}"}), 500
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
