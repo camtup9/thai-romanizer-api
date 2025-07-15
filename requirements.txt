@@ -1,3 +1,4 @@
 flask==3.1.1
 pythainlp==4.0.2
 torch
+numpy
