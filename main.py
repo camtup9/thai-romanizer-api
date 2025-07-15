@@ -11,10 +11,10 @@ def index():
 def romanizer():
     try:
         data = request.get_json(force=True)
-        thai_text = data.get("text", "")
-        if not thai_text:
+        if not data or "text" not in data:
             return jsonify({"error": "Thiếu dữ liệu văn bản"}), 400
+        thai_text = data["text"].strip()
         result = romanize(thai_text, engine="thai2rom")
         return jsonify({"romanized": result})
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": "Lỗi xử lý: " + str(e)}), 500
